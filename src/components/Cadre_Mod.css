@@ -1,0 +1,44 @@
+.cadre-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+        
+}
+.cadre-col{
+    padding: 30px;
+    margin: 50px;
+}
+.img{
+    margin: auto;
+    aspect-ratio: 1.14;
+    object-fit: auto;
+    object-position: center;
+    width: 197px;
+    max-width: 100%;
+}
+
+.h1{
+    text-align: center;
+    color: #283487;
+    text-transform: uppercase;
+    margin-top: 45px;
+    font: 700 36px/111% Inter, -apple-system, Roboto, Helvetica,
+    sans-serif;
+}
+@media (max-width: 991px) {
+    .h1 {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  }
+.p{
+    text-align: center;
+    text-transform: capitalize;
+    margin-top: 38px;
+    font: 500 24px/40px Inter, -apple-system, Roboto, Helvetica,
+    sans-serif;
+}
+.hr{
+    background-color: #FFBF00;
+    width: 300px;
+    height: 4px;
+}
