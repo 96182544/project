@@ -1,24 +1,27 @@
 pipeline {
-    agent none
+    agent any
+    environment {
+        // Configuration du serveur SonarQube
+        SONARQUBE_SERVER = 'SonarQube_server'
+        // Chemin de SonarQube Scanner s'il n'est pas dans le PATH
+        SCANNER_HOME = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+    }
     stages {
-        stage('Checkout') {
-            agent any
+        stage('Clone') {
             steps {
-                // Vérification du code source depuis le dépôt SCM
-                checkout scm
+                // Cloner le dépôt depuis GitHub
+                git url: 'https://github.com/96182544/project.git', branch: 'main'
             }
         }
         stage('Build & SonarQube Analysis') {
-            agent any
             steps {
                 withSonarQubeEnv('SonarQube_server') {
                     // Exécuter l'analyse SonarQube sur le code JavaScript
-                    sh 'sonar-scanner -Dsonar.projectKey=my_project_key -Dsonar.sources=./src -Dsonar.language=js -Dsonar.sourceEncoding=UTF-8'
+                    sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=my_project_key -Dsonar.sources=./src -Dsonar.language=js -Dsonar.sourceEncoding=UTF-8"
                 }
             }
         }
         stage('Quality Gate') {
-            agent any
             steps {
                 script {
                     // Attendre le résultat du Quality Gate
@@ -30,6 +33,12 @@ pipeline {
                     }
                 }
             }
+        }
+    }
+    post {
+        always {
+            // Actions à exécuter après toutes les étapes, par exemple :
+            cleanWs()
         }
     }
 }
