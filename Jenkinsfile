@@ -11,7 +11,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube_server') {
                     // Exécuter l'analyse SonarQube sur le code JavaScript
-                    sh " sonar-scanner.bat -D"sonar.projectKey=project" -D"sonar.sources=." -D"sonar.host.url=http://100.25.211.99:9000" -D"sonar.login=sonar" " 
+                    sh "sonar-scanner.bat -D"sonar.projectKey=project" -D"sonar.sources=." -D"sonar.host.url=http://100.25.211.99:9000" -D"sonar.login=sonar" " 
                 }
             }
         }
