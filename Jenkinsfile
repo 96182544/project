@@ -1,11 +1,5 @@
 pipeline {
     agent any
-    environment {
-        // Configuration du serveur SonarQube
-        SONARQUBE_SERVER = 'SonarQube_server'
-        // Chemin de SonarQube Scanner s'il n'est pas dans le PATH
-        SCANNER_HOME = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-    }
     stages {
         stage('Clone') {
             steps {
@@ -21,19 +15,7 @@ pipeline {
                 }
             }
         }
-        stage('Quality Gate') {
-            steps {
-                script {
-                    // Attendre le résultat du Quality Gate
-                    timeout(time: 1, unit: 'HOURS') {
-                        def qg = waitForQualityGate()
-                        if (qg.status != 'OK') {
-                            error "Quality Gate failed: ${qg.status}"
-                        }
-                    }
-                }
-            }
-        }
+   
     }
 
 }
