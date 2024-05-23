@@ -17,7 +17,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube_server') {
                     // Exécuter l'analyse SonarQube sur le code JavaScript
-                    sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=my_project_key -Dsonar.sources=./src -Dsonar.language=js -Dsonar.sourceEncoding=UTF-8"
+                    sh "sonar-scanner  -Dsonar.projectKey=project  -Dsonar.sources=.  -Dsonar.host.url=http://100.25.211.99:9000   -Dsonar.login=sonar"
                 }
             }
         }
