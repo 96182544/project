@@ -35,10 +35,5 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            // Actions à exécuter après toutes les étapes, par exemple :
-            cleanWs()
-        }
-    }
+
 }
