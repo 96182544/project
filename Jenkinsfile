@@ -11,7 +11,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube_server') {
                     // Exécuter l'analyse SonarQube sur le code JavaScript
-                       sh """sonar-scanner \
+                       sh """sonar-scanner:sonar-scanner \
                 -Dsonar.projectKey=-aa \
                 -Dsonar.sources=. \
                 -Dsonar.host.url=http://100.25.211.99:9000 \
