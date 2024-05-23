@@ -11,13 +11,13 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube_server') {
                     // Exécuter l'analyse SonarQube sur le code JavaScript
-                    sh " sonar-scanner \
-  -Dsonar.projectKey=-aa \
-  -Dsonar.sources=. \
-  -Dsonar.host.url=http://100.25.211.99:9000 \
-  -Dsonar.login=admin \
-     -Dsonar.password=sonar               
-                    " 
+                       sh """sonar-scanner \
+                -Dsonar.projectKey=-aa \
+                -Dsonar.sources=. \
+                -Dsonar.host.url=http://100.25.211.99:9000 \
+                -Dsonar.login=admin \
+                -Dsonar.password=sonar
+            """
                 }
             }
         }
