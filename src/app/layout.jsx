@@ -7,6 +7,7 @@ import Home from "./page";
 import Fonction from "./Fonction/Fonction";
 import Contact from "./Contact/Contact";
 import Blog from "./Blog/Blog";
+import SchoolVideo from "@/components/SchoolVideo/SchoolVideo";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,13 +20,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar/>
-        <Home/>
-        <About/>
-        <Fonction/>
-        <Blog/>
-        <Contact/>
-        <Footer/>
+        <Navbar />
+        <Home />
+        <About />
+        <Fonction />
+        <SchoolVideo />
+        <Blog />
+        <Contact />
+        <Footer />
       </body>
     </html>
   );
