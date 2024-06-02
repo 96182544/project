@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Docker buil and docker run'){
             steps{
-                sh 'docker build -t project .'
+                sh 'docker build -t project . /mnt/test'
                 sh 'docker run -p 3000:3000 project'
             }
         }
