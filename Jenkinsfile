@@ -21,6 +21,12 @@ pipeline {
                 }
             }
         }
+        stage('Docker buil and docker run'){
+            steps{
+                sh 'docker build -t project .'
+                sh 'docker run -p 3000:3000 project'
+            }
+        }
    
     }
 
