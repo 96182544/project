@@ -14,7 +14,7 @@ pipeline {
                        sh """sonar-scanner \
                 -Dsonar.projectKey=-aa \
                 -Dsonar.sources=. \
-                -Dsonar.host.url=http://54.175.219.85:9000 \
+                -Dsonar.host.url=http://54.90.0.233:9000 \
                 -Dsonar.login=admin \
                 -Dsonar.password=sonar
             """
